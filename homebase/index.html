@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Homebase</title>
+<meta name="description" content="Homebase is a satirical account-deletion flow built for a UI hackathon on bad UX. Deleting your account means dragging every tile into a bin.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section id="login">
+  <div class="brand" id="logobrand"></div>
+  <h1 class="login-title">Log in to your account</h1>
+  <form id="loginform" novalidate>
+    <label for="email">Email<input id="email" type="email" autocomplete="username" placeholder="you@example.com"></label>
+    <label for="pw">Password<input id="pw" type="password" autocomplete="current-password"></label>
+    <p class="err" id="loginerr" role="alert"></p>
+    <button class="primary" type="submit" id="loginbtn">Log in</button>
+  </form>
+  <p class="fine">Demo for a UI hackathon about bad UX. Any email and password of 4+ characters works. Nothing is sent or saved.</p>
+</section>
+
+<section id="app" hidden>
+  <header class="top">
+    <div class="brand" id="apphome"></div>
+    <span id="demotag" hidden>demo mode</span>
+    <span class="ico" id="topicons"></span>
+    <span class="who" id="who"></span>
+    <button class="textbtn" id="del-acct" type="button">Delete account</button>
+    <button class="textbtn" id="logout" type="button">Log out</button>
+  </header>
+  <div class="head"><h1>Dashboard</h1><p id="count"></p></div>
+  <div id="notice" hidden></div>
+  <div class="grid" id="grid"></div>
+  <aside class="bin" id="bin" aria-label="Bin">
+    <div class="binicon" id="binicon"></div>
+    <div class="binmid">
+      <div id="binlabel">Bin 0/3</div>
+      <div id="slots"></div>
+      <p id="binmsg" aria-live="polite">The bin is empty.</p>
+      <div id="progress" hidden><div id="ptext"></div><div class="barwrap"><div id="bar"></div></div><div id="psec"></div></div>
+    </div>
+    <button class="outline" id="empty" type="button" disabled>Empty bin</button>
+  </aside>
+</section>
+
+<section id="roulette" hidden>
+  <h1>One last check</h1>
+  <p>We will spin the wheel to see if your account is deleted.</p>
+  <svg id="wheel" viewBox="0 -4 300 304" role="img" aria-label="Roulette wheel">
+    <g id="wheelg"></g>
+    <polygon points="150,24 137,-2 163,-2" fill="#b42318"/>
+  </svg>
+  <div id="rres" aria-live="polite"></div>
+  <button class="primary" id="spin" type="button">Spin</button>
+  <p class="fine" id="odds"></p>
+</section>
+
+<section id="done" hidden>
+  <div id="doneicon"></div>
+  <h1>Account deleted!</h1>
+  <p>Your account and everything in it is gone for good.</p>
+  <div id="twist" hidden>
+    <p><b>Just kidding, we saved your data.</b><br>Log in to confirm deletion.</p>
+    <button class="primary" id="again" type="button">Log in</button>
+  </div>
+</section>
+
+<div id="modal" hidden></div>
+<div id="toast" role="status" hidden></div>
+<canvas id="confetti" hidden></canvas>
+
+<script src="js/script.js"></script>
+</body>
+</html>
